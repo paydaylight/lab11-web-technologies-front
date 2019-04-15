@@ -12,7 +12,7 @@ import { Observable, Subject, asapScheduler, pipe, of, from, interval, merge, fr
 })
 export class MainComponent implements OnInit {
   title = 'Django';
-  task_list: Observable<ITaskList[]>;
+  task_list: ITaskList[];
   constructor(private taskListService: TaskListService) { }
 
   ngOnInit() {
@@ -22,7 +22,7 @@ export class MainComponent implements OnInit {
   getTaskLists(): void{
     // this.task_list = this.taskListService.getTaskLists();
     this.taskListService.getTaskLists()
-      .subscribe(taskList => this.task_list);
+      .then(task_list => this.task_list = task_list);
   }
 
 }
