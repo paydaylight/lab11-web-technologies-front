@@ -22,7 +22,10 @@ export class MainComponent implements OnInit {
   getTaskLists(): void{
     // this.task_list = this.taskListService.getTaskLists();
     this.taskListService.getTaskLists()
-      .then(task_list => this.task_list = task_list);
+      .then(task_list => {
+        this.task_list = task_list;
+        console.log('tasklist', this.task_list);
+      });
   }
 
 }
